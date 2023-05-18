@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1 #{product.title}
+
+  img(src=product.thumbnail alt='product thumbnail' style='width:auto; height:250px;')
+
+
+  p $#{product.price}
+  p #[strong Stock:] #{product.stock}
+  p #[strong Description:] #{product.description}
+  p #[strong Rating:] #{product.rating}
+  p #[strong Brand:] #{product.brand}
+  p #[strong Discount Percentage:] #{product.discountPercentage}
+  p #[strong Additional Images:]
+  each image in product.images
+    a(href=image)
+      img(src=image alt='product image' style='width:auto; height:100px;')
+    <br>
+
+  hr
+  p
+    a(href=product.url+'/delete') Delete Product
+  p
+    a(href=product.url+'/update') Update Product
